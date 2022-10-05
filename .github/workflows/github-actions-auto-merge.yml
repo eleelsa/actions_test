@@ -1,0 +1,12 @@
+name: Pull Request Auto Merge
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  auto_merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: auto_merge
+        run: gh pr merge --auto --merge ${{ github.event.pull_request.html_url }}
