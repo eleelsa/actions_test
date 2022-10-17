@@ -1,0 +1,22 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions
+on: [push]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: download terraform
+          run: wget https://releases.hashicorp.com/terraform/1.3.2/terraform_1.3.2_linux_amd64.zip
+          shell: bash
+        - name: ls
+          run: ls
+          shell: bash
+        - name: unzip
+          run: unzip terraform_1.3.2_linux_amd64.zip
+          shell: bash
+        - name: terraform init
+          run: ./terraform init
+          shell: bash
